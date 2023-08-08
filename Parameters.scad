@@ -19,24 +19,24 @@
 // ===============================================
 
 // inner and outer diameter refer to the 3D printed connectors, NOT the hose.
-hc8mm_pipe_inner_dia = 5.4;
+hc8mm_pipe_inner_dia = 6;
 hc8mm_pipe_outer_dia = 8;
 hc8mm_outer_dia_lower = 7.75;
 hc8mm_outer_dia_upper = 9;
-hc8mm_tooth_length = 4.3;
-hc8mm_tooth_number = 4;
+hc8mm_tooth_length = 5;
+hc8mm_tooth_number = 10;
 
 
 // Parameters for 6mm x 1mm
 // ===============================================
 
 // inner and outer diameter refer to the 3D printed connectors, NOT the hose.
-hc6mm_pipe_inner_dia = 4;
-hc6mm_pipe_outer_dia = 6;
-hc6mm_outer_dia_lower = 6;
-hc6mm_outer_dia_upper = 6.9;
-hc6mm_tooth_length = 4;
-hc6mm_tooth_number = 4;
+hc6mm_pipe_inner_dia = 12;
+hc6mm_pipe_outer_dia = 16;
+hc6mm_outer_dia_lower = 14;
+hc6mm_outer_dia_upper = 17;
+hc6mm_tooth_length = 5;
+hc6mm_tooth_number = 8;
 
 
 // Parameters for 4mm x 1mm
