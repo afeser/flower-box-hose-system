@@ -19,36 +19,26 @@
 // ===============================================
 
 // inner and outer diameter refer to the 3D printed connectors, NOT the hose.
-hc8mm_pipe_inner_dia = 6;
-hc8mm_pipe_outer_dia = 8;
-hc8mm_outer_dia_lower = 7.75;
-hc8mm_outer_dia_upper = 9;
-hc8mm_tooth_length = 5;
-hc8mm_tooth_number = 10;
+hosetype0_pipe_inner_dia = 6;
+hosetype0_pipe_outer_dia = 8;
+hosetype0_outer_dia_lower = 7.75;
+hosetype0_outer_dia_upper = 9;
+hosetype0_tooth_length = 5;
+hosetype0_tooth_number = 10;
 
 
 // Parameters for 6mm x 1mm
 // ===============================================
 
 // inner and outer diameter refer to the 3D printed connectors, NOT the hose.
-hc6mm_pipe_inner_dia = 12;
-hc6mm_pipe_outer_dia = 16;
-hc6mm_outer_dia_lower = 14;
-hc6mm_outer_dia_upper = 17;
-hc6mm_tooth_length = 5;
-hc6mm_tooth_number = 8;
+hosetype1_pipe_inner_dia = 12;
+hosetype1_pipe_outer_dia = 16;
+hosetype1_outer_dia_lower = 14;
+hosetype1_outer_dia_upper = 17;
+hosetype1_tooth_length = 5;
+hosetype1_tooth_number = 8;
 
 
-// Parameters for 4mm x 1mm
-// ===============================================
-
-// inner and outer diameter refer to the 3D printed connectors, NOT the hose.
-hc4mm_pipe_inner_dia = 2.4;
-hc4mm_pipe_outer_dia = 4;
-hc4mm_outer_dia_lower = 4;
-hc4mm_outer_dia_upper = 4.5;
-hc4mm_tooth_length = 3;
-hc4mm_tooth_number = 4;
 
 
 // Your custom parameters ...
@@ -73,9 +63,9 @@ hc4mm_tooth_number = 4;
 // with different diameters.
 // A schematic for the parameters can be found here:
 //   https://montebaur.tech/projects/hose_connectors.html#parameterization
-hc_pipe_inner_dia =  [hc4mm_pipe_inner_dia,  hc6mm_pipe_inner_dia,  hc8mm_pipe_inner_dia  ];  // a
-hc_pipe_outer_dia =  [hc4mm_pipe_outer_dia,  hc6mm_pipe_outer_dia,  hc8mm_pipe_outer_dia  ];  // b
-hc_outer_dia_lower = [hc4mm_outer_dia_lower, hc6mm_outer_dia_lower, hc8mm_outer_dia_lower ];  // c
-hc_outer_dia_upper = [hc4mm_outer_dia_upper, hc6mm_outer_dia_upper, hc8mm_outer_dia_upper ];  // d
-hc_tooth_length =    [hc4mm_tooth_length,    hc6mm_tooth_length,    hc8mm_tooth_length    ];  // e
-hc_tooth_number =    [hc4mm_tooth_number,    hc6mm_tooth_number,    hc8mm_tooth_number    ];  // #teeth
+hc_pipe_inner_dia =  [hosetype0_pipe_inner_dia,  hosetype1_pipe_inner_dia ];  // a
+hc_pipe_outer_dia =  [hosetype0_pipe_outer_dia,  hosetype1_pipe_outer_dia ];  // b
+hc_outer_dia_lower = [hosetype0_outer_dia_lower, hosetype1_outer_dia_lower ];  // c
+hc_outer_dia_upper = [hosetype0_outer_dia_upper, hosetype1_outer_dia_upper ];  // d
+hc_tooth_length =    [hosetype0_tooth_length,    hosetype1_tooth_length ];  // e
+hc_tooth_number =    [hosetype0_tooth_number,    hosetype1_tooth_number ];  // #teeth
