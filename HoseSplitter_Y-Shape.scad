@@ -20,31 +20,31 @@ $fn = 100;
 // @param middle_pipe_length: Length of the offset between intersection point and connectors.
 // @param sphere_multiplier: For improved stability and grip while attaching/removing
 //      hoses, a sphere in the middle can be added. Its diameter is the pipe's outer
-//      diameter * sphere_multiplier.
-module MultiConnectorY(ports=[[0, 1], [180, 1]], middle_pipe_length=12, sphere_multiplier=1.7) {
-    // Creates a water intersection in arbitrary angles
+//      diameter * sphere_multiplier./
 
+// TODO: refactor this class
+module MultiConnectorY(hose_params=[[6, 8, 10, 5], [6, 8, 10, 5]], angles=[0, 180], middle_pipe_length=12, sphere_multiplier=1.7) {
+    // Creates a water intersection in arbitrary angles
+    
     pipe_length = middle_pipe_length;
-    max_outer_dia = max( [ for (port = ports) hc_pipe_outer_dia[port[1]] ] );
-    max_inner_dia = max( [ for (port = ports) hc_pipe_inner_dia[port[1]] ] );
+    max_outer_dia = max( [ for (hose_param = hose_params) hose_param[1] ] );
+    max_inner_dia = max( [ for (hose_param = hose_params) hose_param[0] ] );
 
     difference() {
         union() {
-            for (port = ports) {
-                angle = port[0];
-                hose_type = port[1];
+            for (counter=[0:len(hose_params)-1]) {
+                angle = angles[counter];
                 rotate([-90, 0, angle]) {
-                    translate([0, 0, pipe_length]) HoseConnector(hose_type);
-                    cylinder(h=pipe_length, d=hc_pipe_outer_dia[hose_type]);
+                    translate([0, 0, pipe_length]) HoseConnector(hose_params[counter][0], hose_params[counter][1], hose_params[counter][2], hose_params[counter][3]);
+                    cylinder(h=pipe_length, d=hose_params[counter][1]);
                 }
             }
             sphere(d=max_outer_dia*sphere_multiplier);
         }
 
-        for (port = ports) {
-            angle = port[0];
-            hose_type = port[1];
-            inner_dia = hc_pipe_inner_dia[hose_type];
+        for (counter=[0:len(hose_params)-1]) {
+            angle = angles[counter];
+            inner_dia = hose_params[counter][0];
             rotate([-90, 0, angle]) translate([0, 0, -0.01]) {
                 cylinder(h=pipe_length+0.02, d=inner_dia);
                 cylinder(h=max_outer_dia/3, d2=inner_dia, d1=max_inner_dia);
@@ -72,7 +72,7 @@ module MultiConnectorY(ports=[[0, 1], [180, 1]], middle_pipe_length=12, sphere_m
 // and two outlets for hoses with 4mm inner diameter.
 // Before printing, remove the differece operator.
 difference() {
-    MultiConnectorY([[0, 1], [150, 0], [210, 0]], middle_pipe_length=8, sphere_multiplier=1.2);
+    MultiConnectorY();
 
     // !! Difference added for visualiztion purposes.
     translate([-40, -40, 0]) cube([80, 80, 40]);

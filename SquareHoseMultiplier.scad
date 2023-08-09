@@ -4,7 +4,7 @@ use <HoseConnector.scad>
 // Return max. of the first element of the given array!
 function get_max(array, counter=0) = len(array) == counter ? 0 : max(get_max(array, counter+1), array[counter][1]);
 
-module MultiConnectorY(hose_connector_params) {
+module SquareHoseMultiplier(hose_connector_params) {
     number_outputs = len(hose_connector_params);
     // Length of X and Y axis of the rectangle(choose the best from the inputs! (20% error margin!)
     area_for_single_output = max(1.2*get_max(hoses), 2+get_max(hoses));
@@ -82,9 +82,21 @@ module MultiConnectorY(hose_connector_params) {
 
 
 // [inner_diameter=6, outer_diameter=8, number_tooth=10, tooth_length=5]
-hoses = [[6, 8, 10, 5],
-[6, 8, 10, 5],
-[6, 8, 10, 5],
-[6, 8, 10, 5],
-[6, 8, 10, 5]];
-MultiConnectorY(hose_connector_params=hoses);
+hoses = [
+[7, 8, 10, 5],
+[7, 8, 10, 5],
+[7, 8, 10, 5],
+[7, 8, 10, 5],
+[7, 8, 10, 5],
+[7, 8, 10, 5],
+[7, 8, 10, 5],
+[7, 8, 10, 5],
+[7, 8, 10, 5],
+[7, 8, 10, 5],
+[7, 8, 10, 5],
+[7, 8, 10, 5],
+[7, 8, 10, 5],
+[7, 8, 10, 5],
+[7, 8, 10, 5],
+];
+SquareHoseMultiplier(hose_connector_params=hoses);
